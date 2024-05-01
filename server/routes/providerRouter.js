@@ -1,7 +1,7 @@
 const express = require('express');
-const { authenticateJwt, SECRET } = require("../middleware/auth");
 const { Provider } = require("../db");
 const router = express.Router();
+
 
 router.get('/:fieldValue', async (req, res) => {
     const { fieldValue } = req.params;
