@@ -2,7 +2,7 @@ import React from "react";
 
 const Spa = ({ type, tokenAmount, duration, imageUrl }) => {
     return (
-        <div className="rounded-xl overflow-hidden flex shadow hover:shadow-md max-w-sm bg-stone-500 text-white cursor-pointer h-28">
+        <a href={`/booking/${type}`} className="rounded-xl overflow-hidden flex shadow hover:shadow-md max-w-sm bg-stone-500 text-white cursor-pointer h-28">
             <div className="w-7/12 pl-3 p-3 text-text1 flex flex-col justify-center">
                 <div className="text-xs text-primary mb-2">
                     <a className="flex items-center">
@@ -15,7 +15,7 @@ const Spa = ({ type, tokenAmount, duration, imageUrl }) => {
             <div className="lg:flex flex w-5/12 p-2">
                 <img src={imageUrl} className="rounded-xl object-cover w-full h-full" alt="Spa" />
             </div>
-        </div>
+        </a>
     );
 }
 
