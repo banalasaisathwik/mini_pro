@@ -20,7 +20,8 @@ const Home = () => {
                     <div className="container mx-auto px-4">
                         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Trending right now</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <a href="#spa" className="block">
+
+                            <a href="/spa" className="block">
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse4.mm.bing.net/th?id=OIP.wxxexalNoEz0EffBcNBqmQHaE7&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -30,7 +31,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="#acService" className="block">
+                            <a href="/acService" className="block">
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -40,7 +41,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="#deepHouseClean" className="block">
+                            <a href="/deepHouseClean" className="block">
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -62,7 +63,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <a href="#acService" className="block">
+                        <a href="/acService" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -72,7 +73,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="#deepHouseClean" className="block">
+                        <a href="/deepHouseClean" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -81,7 +82,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </a>
-                        <a href="#lawnCare" className="block">
+                        <a href="/lawnCare" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.VlDyehre1wzOborn-Mch4QHaE8&pid=Api&P=0&h=220" alt="Lawn Care" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -91,7 +92,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="#petGrooming" className="block">
+                        <a href="/petGrooming" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.x3TxlIAkqubKwk3M2RnHvwHaE8&pid=Api&P=0&h=220" alt="Pet Grooming" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -101,7 +102,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="#spa" className="block">
+                        <a href="/spa" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.a8PgOwiLmvAFOp1rPOxW4gHaEK&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -111,7 +112,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="#locksmith" className="block">
+                        <a href="/locksmith" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse4.mm.bing.net/th?id=OIP.MIjZGOHfckBcVJitcDwu6QHaEK&pid=Api&P=0&h=220" alt="Locksmith" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -121,7 +122,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="#painting" className="block">
+                        <a href="/painting" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.aaqJpQvNqE7JhHKcrQeU4AHaE8&pid=Api&P=0&h=220" alt="Painting" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -132,7 +133,7 @@ const Home = () => {
                         </a>
                     </div>
                 </div>
-                
+
             </section>
 
             <section className="py-10" id="special_services">
@@ -140,7 +141,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Special Services (limited period)</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a href="#mehandi" className="block">
+                        <a href="/mehandi" className="block">
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.EwHbrfQEsyhiSx97re_aOQHaJQ&pid=Api&P=0&h=220" alt="Mehandi" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -161,10 +162,10 @@ const Home = () => {
                         <div className="max-w-lg">
                             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
                             <p className="mt-4 text-gray-600 text-lg">
-Welcome to Kalki, your one-stop solution for professional services. We are dedicated to providing exceptional services that cater to your every need. Our team of skilled professionals is committed to delivering top-notch quality and customer satisfaction. At Kalki, we believe in the power of expertise and reliability. Whether it's AC service, deep house cleaning, spa treatments, or locksmith services, we ensure that every service is performed with precision and care. We take pride in our attention to detail and our ability to exceed our customers' expectations. Our mission is to make your life easier by offering convenient and reliable services that you can trust. With Kalki, you can rest assured that your needs will be met with professionalism and excellence. Thank you for choosing Kalki. We look forward to serving you and building a long-lasting relationship based on trust and satisfaction.We look forward to serving you!</p>
+                                Welcome to Kalki, your one-stop solution for professional services. We are dedicated to providing exceptional services that cater to your every need. Our team of skilled professionals is committed to delivering top-notch quality and customer satisfaction. At Kalki, we believe in the power of expertise and reliability. Whether it's AC service, deep house cleaning, spa treatments, or locksmith services, we ensure that every service is performed with precision and care. We take pride in our attention to detail and our ability to exceed our customers' expectations. Our mission is to make your life easier by offering convenient and reliable services that you can trust. With Kalki, you can rest assured that your needs will be met with professionalism and excellence. Thank you for choosing Kalki. We look forward to serving you and building a long-lasting relationship based on trust and satisfaction.We look forward to serving you!</p>
                         </div>
                         <div className="mt-12 md:mt-0">
-                            <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86" alt="About Us Image" className="object-cover rounded-lg shadow-md"/>
+                            <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86" alt="About Us Image" className="object-cover rounded-lg shadow-md" />
                         </div>
                     </div>
                 </div>
@@ -180,7 +181,7 @@ Welcome to Kalki, your one-stop solution for professional services. We are dedic
                         <div className="p-4 md:w-1/4 sm:w-1/2">
                             <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
                                 <div className="flex justify-center">
-                                    <img src="https://image3.jdomni.in/banner/13062021/58/97/7C/E53960D1295621EFCB5B13F335_1623567851299.png?output-format=webp" className="w-32 mb-3"/>
+                                    <img src="https://image3.jdomni.in/banner/13062021/58/97/7C/E53960D1295621EFCB5B13F335_1623567851299.png?output-format=webp" className="w-32 mb-3" />
                                 </div>
                                 <h2 className="title-font font-regular text-2xl text-gray-900">Advanced Machinery</h2>
                             </div>
@@ -189,7 +190,7 @@ Welcome to Kalki, your one-stop solution for professional services. We are dedic
                         <div className="p-4 md:w-1/4 sm:w-1/2">
                             <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
                                 <div className="flex justify-center">
-                                    <img src="https://image2.jdomni.in/banner/13062021/3E/57/E8/1D6E23DD7E12571705CAC761E7_1623567977295.png?output-format=webp" className="w-32 mb-3"/>
+                                    <img src="https://image2.jdomni.in/banner/13062021/3E/57/E8/1D6E23DD7E12571705CAC761E7_1623567977295.png?output-format=webp" className="w-32 mb-3" />
                                 </div>
                                 <h2 className="title-font font-regular text-2xl text-gray-900">Reasonable Rates</h2>
                             </div>
@@ -198,7 +199,7 @@ Welcome to Kalki, your one-stop solution for professional services. We are dedic
                         <div className="p-4 md:w-1/4 sm:w-1/2">
                             <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
                                 <div className="flex justify-center">
-                                    <img src="https://image3.jdomni.in/banner/13062021/16/7E/7E/5A9920439E52EF309F27B43EEB_1623568010437.png?output-format=webp" className="w-32 mb-3"/>
+                                    <img src="https://image3.jdomni.in/banner/13062021/16/7E/7E/5A9920439E52EF309F27B43EEB_1623568010437.png?output-format=webp" className="w-32 mb-3" />
                                 </div>
                                 <h2 className="title-font font-regular text-2xl text-gray-900">Time Efficiency</h2>
                             </div>
@@ -207,7 +208,7 @@ Welcome to Kalki, your one-stop solution for professional services. We are dedic
                         <div className="p-4 md:w-1/4 sm:w-1/2">
                             <div className="px-4 py-6 transform transition duration-500 hover:scale-110">
                                 <div className="flex justify-center">
-                                    <img src="https://image3.jdomni.in/banner/13062021/EB/99/EE/8B46027500E987A5142ECC1CE1_1623567959360.png?output-format=webp" className="w-32 mb-3"/>
+                                    <img src="https://image3.jdomni.in/banner/13062021/EB/99/EE/8B46027500E987A5142ECC1CE1_1623567959360.png?output-format=webp" className="w-32 mb-3" />
                                 </div>
                                 <h2 className="title-font font-regular text-2xl text-gray-900">Expertise in Industry</h2>
                             </div>
@@ -259,9 +260,9 @@ Welcome to Kalki, your one-stop solution for professional services. We are dedic
                             </div>
                             <div className="rounded-lg overflow-hidden order-none sm:order-first">
                                 <iframe
-                                    src= "https://www.google.com/maps/embed/v1/place?q=CBIT,+Osman+Sagar+Road,+Kokapet,+Gandipet,+Telangana,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" 
-                                    className="w-full" width="600" height="450"  loading="lazy"
-                                    > </iframe>
+                                    src="https://www.google.com/maps/embed/v1/place?q=CBIT,+Osman+Sagar+Road,+Kokapet,+Gandipet,+Telangana,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                                    className="w-full" width="600" height="450" loading="lazy"
+                                > </iframe>
 
                             </div>
 
