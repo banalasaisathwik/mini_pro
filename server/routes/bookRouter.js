@@ -15,7 +15,10 @@ router.post("/book", authenticateJwt, async (req, res) => {
     await newBooking.save();
     res
       .status(201)
-      .json({ message: "Booking created successfully", booking: newBooking });
+      .json({
+        message: "Booking created successfully",
+        bookingId: newBooking._id,
+      });
   } catch (error) {
     console.error(error);
     res

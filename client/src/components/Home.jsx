@@ -21,7 +21,7 @@ const Home = () => {
                         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Trending right now</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                            <a href="/spa" className="block">
+                            <a href="/spa" className="block" onClick={() => sessionStorage.setItem( 'type', 'Spa')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse4.mm.bing.net/th?id=OIP.wxxexalNoEz0EffBcNBqmQHaE7&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -31,7 +31,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/acService" className="block">
+                            <a href="/acService" className="block" onClick={() => sessionStorage.setItem( 'type', 'acService')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -41,7 +41,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/deepHouseClean" className="block">
+                            <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem( 'type', 'deepHouseClean')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -63,7 +63,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <a href="/acService" className="block">
+                        <a href="/acService" className="block" onClick={() => sessionStorage.setItem( 'type', 'acService')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -73,7 +73,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/deepHouseClean" className="block">
+                        <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem( 'type', 'deepHouseClean')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -82,7 +82,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </a>
-                        <a href="/lawnCare" className="block">
+                        <a href="/lawnCare" className="block" onClick={() => sessionStorage.setItem( 'type', 'lawnCare')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.VlDyehre1wzOborn-Mch4QHaE8&pid=Api&P=0&h=220" alt="Lawn Care" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -92,7 +92,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/petGrooming" className="block">
+                        <a href="/petGrooming" className="block" onClick={() => sessionStorage.setItem( 'type', 'petGrooming')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.x3TxlIAkqubKwk3M2RnHvwHaE8&pid=Api&P=0&h=220" alt="Pet Grooming" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -102,7 +102,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/spa" className="block">
+                        <a href="/spa" className="block" onClick={() => sessionStorage.setItem( 'type', 'Spa')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.a8PgOwiLmvAFOp1rPOxW4gHaEK&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -112,7 +112,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/locksmith" className="block">
+                        <a href="/locksmith" className="block" onClick={() => sessionStorage.setItem( 'type', 'locksmith')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse4.mm.bing.net/th?id=OIP.MIjZGOHfckBcVJitcDwu6QHaEK&pid=Api&P=0&h=220" alt="Locksmith" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -122,7 +122,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/painting" className="block">
+                        <a href="/painting" className="block" onClick={() => sessionStorage.setItem( 'type', 'painting')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.aaqJpQvNqE7JhHKcrQeU4AHaE8&pid=Api&P=0&h=220" alt="Painting" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -141,7 +141,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Special Services (limited period)</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a href="/mehandi" className="block">
+                        <a href="/mehandi" className="block" onClick={() => sessionStorage.setItem( 'type', 'mehandi')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.EwHbrfQEsyhiSx97re_aOQHaJQ&pid=Api&P=0&h=220" alt="Mehandi" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -238,8 +238,8 @@ const Home = () => {
                                                     className="flex items-center justify-between h-10 w-30 rounded-md bg-indigo-500 text-white p-2">
                                                     {/* <!-- Heroicon name: phone --> */}
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                        stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                        strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round"
                                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                                     </svg>
                                                     Call now

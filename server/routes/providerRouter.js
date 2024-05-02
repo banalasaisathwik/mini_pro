@@ -4,6 +4,7 @@ const { authenticateJwt, SECRET } = require("../middleware/auth");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const axios = require("axios");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -39,7 +40,7 @@ router.post("/signup", async (req, res) => {
 });
 
 router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
-  console.log("get request received");
+  console.log("get request received", req.params);
   const { serviceType, serviceArea } = req.params;
   try {
     const providers = await Provider.find({
@@ -47,8 +48,33 @@ router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
       typeOfServicesOffered: serviceType,
     });
     if (providers.length > 0) {
+      const providerIds = providers.map((provider) => provider._id);
+      const bookingData = {
+        userId: "663271b70fb8db477f6b9756",
+        typeOfServiceNeeded: serviceType,
+        date: new Date(),
+      };
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ2NzEzNjEsImV4cCI6MTcxNDY3NDk2MX0.Kq6AcNh5ixzr4Oolwb0Mt_acJXQN2uKSqErxAGS3bEQ";
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: token,
+      };
+      const bookingResponse = await axios.post(
+        "http://localhost:1337/api/book/book",
+        bookingData,
+        {
+          headers: headers,
+        }
+      );
+      const createdBookingId = await bookingResponse.data.bookingId;
+      const createdBooking = await Booking.findById(createdBookingId);
+      createdBooking.providers = providerIds;
+      await createdBooking.save();
+      console.log(providerIds);
       const providerInfo = providers.map((provider) => {
         return {
+          id: provider.id,
           fullName: provider.fullName,
           yearsOfExperience: provider.yearsOfExperience,
           rating: provider.rating,
@@ -56,6 +82,7 @@ router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
       });
       res.json({ message: "Providers found", providers: providerInfo });
     } else {
+      console.log("No Providers found");
       res
         .status(404)
         .json({ message: "No providers found for the specified criteria" });
