@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
-router.post("/signup", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const found = await Provider.findOne({ email: req.body.email });
     if (found) {
@@ -39,65 +39,68 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
-  console.log("get request received", req.params);
-  const { serviceType, serviceArea } = req.params;
-  try {
-    const providers = await Provider.find({
-      serviceArea: serviceArea,
-      typeOfServicesOffered: serviceType,
-    });
-    if (providers.length > 0) {
-      const providerIds = providers.map((provider) => provider._id);
-      const bookingData = {
-        userId: "663271b70fb8db477f6b9756",
-        typeOfServiceNeeded: serviceType,
-        date: new Date(),
-      };
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ3MjA1NzksImV4cCI6MTcxNDcyNDE3OX0.qu1HBY0wdAEFjcv3zyzbGDfJgfa7TARy7BvOjqMPUUs";
-      const headers = {
-        "Content-Type": "application/json",
-        Authorization: token,
-      };
-      const bookingResponse = await axios.post(
-        "http://localhost:1337/api/book/book",
-        bookingData,
-        {
-          headers: headers,
-        }
-      );
-      const createdBookingId = await bookingResponse.data.bookingId;
-      const createdBooking = await Booking.findById(createdBookingId);
-      createdBooking.providers = providerIds;
-      await createdBooking.save();
-      console.log(providerIds);
-      const providerInfo = providers.map((provider) => {
-        return {
-          id: provider.id,
-          fullName: provider.fullName,
-          yearsOfExperience: provider.yearsOfExperience,
-          rating: provider.rating,
+router.get(
+  "/providersfilter/:serviceType/:serviceArea",
+  authenticateJwt,
+  async (req, res) => {
+    const { serviceType, serviceArea } = req.params;
+    try {
+      const providers = await Provider.find({
+        typeOfServiceOffered: "Spa",
+      });
+      console.log(serviceArea, serviceType);
+      const token = req.headers.authorization;
+      console.log(token);
+      if (providers.length > 0) {
+        const providerIds = providers.map((provider) => provider._id);
+        const bookingData = {
+          userId: req.user,
+          typeOfServiceNeeded: serviceType,
+          date: new Date(),
         };
-      });
-      res.json({
-        message: "Providers found",
-        providers: providerInfo,
-        bookingId: createdBookingId,
-      });
-    } else {
-      console.log("No Providers found");
+        const headers = {
+          "Content-Type": "application/json",
+          authorization: token,
+        };
+        const bookingResponse = await axios.post(
+          "http://localhost:1337/api/book/book",
+          bookingData,
+          {
+            headers: headers,
+          }
+        );
+        const createdBookingId = await bookingResponse.data.bookingId;
+        const createdBooking = await Booking.findById(createdBookingId);
+        createdBooking.providers = providerIds;
+        await createdBooking.save();
+        console.log(providerIds);
+        const providerInfo = providers.map((provider) => {
+          return {
+            id: provider.id,
+            fullName: provider.fullName,
+            yearsOfExperience: provider.yearsOfExperience,
+            rating: provider.rating,
+          };
+        });
+        res.json({
+          message: "Providers found",
+          providers: providerInfo,
+          bookingId: createdBookingId,
+        });
+      } else {
+        console.log("No Providers found");
+        res
+          .status(404)
+          .json({ message: "No providers found for the specified criteria" });
+      }
+    } catch (error) {
+      console.error(error);
       res
-        .status(404)
-        .json({ message: "No providers found for the specified criteria" });
+        .status(500)
+        .json({ message: "Error fetching providers", error: error.message });
     }
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ message: "Error fetching providers", error: error.message });
   }
-});
+);
 
 router.get("/requests/:providerId", authenticateJwt, async (req, res) => {
   try {

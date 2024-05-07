@@ -5,7 +5,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-router.post("/signup", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const found = await User.findOne({ email: req.body.email });
     if (found) {
@@ -22,7 +22,7 @@ router.post("/signup", async (req, res) => {
       UserData.password = await bcrypt.hash(req.body.password, 10);
       const user = await User.create(UserData);
       const token = jwt.sign({ userId: user.id }, SECRET, {
-        expiresIn: "1h",
+        expiresIn: "5h",
       });
       return res.json({
         status: "Success",
@@ -45,19 +45,27 @@ router.post("/login", async (req, res) => {
     user = await Provider.findOne({ email: req.body.email });
   }
   if (!user) {
-    return res.status(401).json({ message: "Invalid email" });
+    return res.status(401).json({ status: "Fail", message: "Invalid email" });
   }
   const isPasswordValid = await bcrypt.compare(
     req.body.password,
     user.password
   );
-  if (!isPasswordValid) {
-    return res.status(401).json({ message: "Invalid password" });
+  console.log(req.body.password, user.password, isPasswordValid);
+  if (isPasswordValid === false) {
+    return res
+      .status(401)
+      .json({ status: "Fail", message: "Invalid password" });
+  } else {
+    const token = jwt.sign({ userId: user.id }, SECRET, {
+      expiresIn: "5h",
+    });
+    return res.json({
+      status: "Success",
+      message: "User logged in successfully",
+      token: token,
+    });
   }
-  const token = jwt.sign({ userId: user.id }, SECRET, {
-    expiresIn: "1h",
-  });
-  res.json({ token });
 });
 
 module.exports = router;

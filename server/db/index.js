@@ -7,7 +7,6 @@ const UserSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true, unique: true },
   profilePicture: String,
   homeAddress: { type: String, required: true },
-  communityId: { type: String },
   bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Booking" }],
 });
 
@@ -18,7 +17,7 @@ const ProviderSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true, unique: true },
   profilePicture: String,
   businessName: String,
-  typeOfServicesOffered: { type: String, required: true },
+  typeOfServiceOffered: { type: String, required: true },
   serviceArea: [{ type: String, required: true }],
   yearsOfExperience: Number,
   rating: { type: Number, default: 0, min: 0, max: 5 },

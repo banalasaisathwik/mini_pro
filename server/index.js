@@ -17,10 +17,7 @@ app.get("/", (req, res) => res.json({ msg: "in servere" }));
 
 const mongoURI = "mongodb://127.0.0.1:27017/CommunitySync";
 mongoose
-  .connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(mongoURI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
 
+  const token = sessionStorage.getItem('token');
   useEffect(() => {
     const fetchBookings = async () => {
       try {
@@ -10,7 +11,7 @@ const MyBookings = () => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ3MjA1NzksImV4cCI6MTcxNDcyNDE3OX0.qu1HBY0wdAEFjcv3zyzbGDfJgfa7TARy7BvOjqMPUUs"
+            authorization: token
           }
         });
         if (response.ok) {
@@ -41,7 +42,7 @@ const MyBookings = () => {
             {/* Middle side */}
             <div className="flex flex-col gap-2 py-2">
               <p className="text-gray-500">
-                <span className="font-bold">Date:</span> {booking.date.slice(0,10)}
+                <span className="font-bold">Date:</span> {booking.date.slice(0, 10)}
               </p>
               <p className="text-gray-500">
                 <span className="font-bold">Time:</span> {booking.time.time}
