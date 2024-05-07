@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 const Booking = () => {
     const [fullName, setFullName] = useState("");
@@ -12,7 +14,7 @@ const Booking = () => {
     const [postCode, setPostCode] = useState("");
     const [showForm, setShowForm] = useState(true);
     const [members, setMembers] = useState([]);
-
+    const navigate = useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -35,6 +37,8 @@ const Booking = () => {
             });
             if (response.ok) {
                 const data = await response.json();
+                console.log(data)
+                sessionStorage.setItem("bookingId",data.bookingId)
                 setMembers(data.providers);
                 setShowForm(false);
             } else {
@@ -45,13 +49,27 @@ const Booking = () => {
         }
     };
 
-    const handleAccept = (memberId) => {
-        // Handle accepting member
+    const handleAccept = async (providerId) => {
+        try {
+        const response = await fetch("http://localhost:1337/api/book/accept/" + sessionStorage.getItem("bookingId") + '/' + providerId, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ3MjA1NzksImV4cCI6MTcxNDcyNDE3OX0.qu1HBY0wdAEFjcv3zyzbGDfJgfa7TARy7BvOjqMPUUs"
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+            } else {
+                console.error("Accept failed!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+        navigate("/mybookings")
     };
 
-    const handleReject = (memberId) => {
-        // Handle rejecting member
-    };
 
     const renderMembersList = () => {
         return (
@@ -73,7 +91,6 @@ const Booking = () => {
                     <td className="px-6 py-4 whitespace-nowrap">{member.rating}</td>
                     <td className="px-6 py-4 whitespace-nowrap space-x-4">
                         <button onClick={() => handleAccept(member.id)} className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Accept</button>
-                        <button onClick={() => handleReject(member.id)} className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Reject</button>
                     </td>
                 </tr>
             ))}

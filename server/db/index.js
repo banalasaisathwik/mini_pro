@@ -31,6 +31,12 @@ const BookingSchema = new mongoose.Schema({
   acceptedProvider: { type: mongoose.Schema.Types.ObjectId, ref: "Provider" },
   typeOfServiceNeeded: { type: String, required: true },
   date: { type: Date, required: true },
+  time: {
+    time: {
+      type: String,
+      default: "10:00:00 AM",
+    },
+  },
   status: {
     type: String,
     enum: ["pending", "accepted", "rejected"],

@@ -55,7 +55,7 @@ router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
         date: new Date(),
       };
       const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ2NzEzNjEsImV4cCI6MTcxNDY3NDk2MX0.Kq6AcNh5ixzr4Oolwb0Mt_acJXQN2uKSqErxAGS3bEQ";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjMyNzFiNzBmYjhkYjQ3N2Y2Yjk3NTYiLCJpYXQiOjE3MTQ3MjA1NzksImV4cCI6MTcxNDcyNDE3OX0.qu1HBY0wdAEFjcv3zyzbGDfJgfa7TARy7BvOjqMPUUs";
       const headers = {
         "Content-Type": "application/json",
         Authorization: token,
@@ -80,7 +80,11 @@ router.get("/providersfilter/:serviceType/:serviceArea", async (req, res) => {
           rating: provider.rating,
         };
       });
-      res.json({ message: "Providers found", providers: providerInfo });
+      res.json({
+        message: "Providers found",
+        providers: providerInfo,
+        bookingId: createdBookingId,
+      });
     } else {
       console.log("No Providers found");
       res

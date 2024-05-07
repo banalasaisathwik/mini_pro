@@ -11,9 +11,9 @@ import React from "react";
                 </button>
             </div>
             <div className=" toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none">
-                <a href="./" className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Home
+                <a href="/" className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Home
                 </a>
-                <a href="#services" className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Services
+                <a href="/#services" className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Services
                 </a>
                 <a href="/mybookings" className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">My Bookings
                 </a>

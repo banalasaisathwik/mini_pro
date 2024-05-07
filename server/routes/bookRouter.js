@@ -13,12 +13,10 @@ router.post("/book", authenticateJwt, async (req, res) => {
       date,
     });
     await newBooking.save();
-    res
-      .status(201)
-      .json({
-        message: "Booking created successfully",
-        bookingId: newBooking._id,
-      });
+    res.status(201).json({
+      message: "Booking created successfully",
+      bookingId: newBooking._id,
+    });
   } catch (error) {
     console.error(error);
     res
@@ -27,25 +25,33 @@ router.post("/book", authenticateJwt, async (req, res) => {
   }
 });
 
-router.put("/accept/:bookingId", authenticateJwt, async (req, res) => {
-  const { bookingId } = req.params;
-  try {
-    const booking = await Booking.findByIdAndUpdate(
-      bookingId,
-      { status: "accepted", updated_at: new Date() },
-      { new: true }
-    );
-    if (!booking) {
-      return res.status(404).json({ message: "Booking not found" });
+router.put(
+  "/accept/:bookingId/:providerId",
+  authenticateJwt,
+  async (req, res) => {
+    const { bookingId, providerId } = req.params;
+    try {
+      const booking = await Booking.findByIdAndUpdate(
+        bookingId,
+        {
+          status: "accepted",
+          updated_at: new Date(),
+          acceptedProvider: providerId,
+        },
+        { new: true }
+      );
+      if (!booking) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      res.json({ message: "Booking accepted successfully", booking });
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ message: "Error accepting booking", error: error.message });
     }
-    res.json({ message: "Booking accepted successfully", booking });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ message: "Error accepting booking", error: error.message });
   }
-});
+);
 
 router.put("/reject/:bookingId", authenticateJwt, async (req, res) => {
   const { bookingId } = req.params;
@@ -67,16 +73,17 @@ router.put("/reject/:bookingId", authenticateJwt, async (req, res) => {
   }
 });
 
-router.get("/mybooking/:userId", authenticateJwt, async (req, res) => {
+router.get("/mybooking", authenticateJwt, async (req, res) => {
   try {
-    const { userId } = req.params;
-    const userBookings = await Booking.find({ user: userId }).populate(
-      "provider",
-      "typeOfServiceNeeded"
-    );
+    const { userId } = req.user;
+    const userBookings = await Booking.find({ user: userId });
     const bookingsWithDetails = userBookings.map((booking) => ({
       serviceType: booking.typeOfServiceNeeded,
       status: booking.status,
+      id: booking._id,
+      acceptedProvider: booking.acceptedProvider,
+      date: booking.date,
+      time: booking.time,
     }));
     res.json({ bookings: bookingsWithDetails });
   } catch (error) {
