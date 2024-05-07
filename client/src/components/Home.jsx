@@ -21,7 +21,7 @@ const Home = () => {
                         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Trending right now</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                            <a href="/spa" className="block">
+                            <a href="/spa" className="block" onClick={() => sessionStorage.setItem('type', 'Spa')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse4.mm.bing.net/th?id=OIP.wxxexalNoEz0EffBcNBqmQHaE7&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -31,7 +31,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/acService" className="block">
+                            <a href="/acService" className="block" onClick={() => sessionStorage.setItem('type', 'acService')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -41,7 +41,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/deepHouseClean" className="block">
+                            <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem('type', 'deepHouseClean')}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -63,7 +63,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <a href="/acService" className="block">
+                        <a href="/acService" className="block" onClick={() => sessionStorage.setItem('type', 'acService')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -73,7 +73,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/deepHouseClean" className="block">
+                        <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem('type', 'deepHouseClean')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -82,7 +82,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </a>
-                        <a href="/lawnCare" className="block">
+                        <a href="/lawnCare" className="block" onClick={() => sessionStorage.setItem('type', 'lawnCare')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.VlDyehre1wzOborn-Mch4QHaE8&pid=Api&P=0&h=220" alt="Lawn Care" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -92,7 +92,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/petGrooming" className="block">
+                        <a href="/petGrooming" className="block" onClick={() => sessionStorage.setItem('type', 'petGrooming')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.x3TxlIAkqubKwk3M2RnHvwHaE8&pid=Api&P=0&h=220" alt="Pet Grooming" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -102,7 +102,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/spa" className="block">
+                        <a href="/spa" className="block" onClick={() => sessionStorage.setItem('type', 'Spa')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.a8PgOwiLmvAFOp1rPOxW4gHaEK&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -112,7 +112,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/locksmith" className="block">
+                        <a href="/locksmith" className="block" onClick={() => sessionStorage.setItem('type', 'locksmith')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse4.mm.bing.net/th?id=OIP.MIjZGOHfckBcVJitcDwu6QHaEK&pid=Api&P=0&h=220" alt="Locksmith" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -122,7 +122,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/painting" className="block">
+                        <a href="/painting" className="block" onClick={() => sessionStorage.setItem('type', 'painting')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.aaqJpQvNqE7JhHKcrQeU4AHaE8&pid=Api&P=0&h=220" alt="Painting" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -141,7 +141,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Special Services (limited period)</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a href="/mehandi" className="block">
+                        <a href="/mehandi" className="block" onClick={() => sessionStorage.setItem('type', 'mehandi')}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.EwHbrfQEsyhiSx97re_aOQHaJQ&pid=Api&P=0&h=220" alt="Mehandi" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -232,11 +232,11 @@ const Home = () => {
                                         <h3 className="text-lg font-bold text-gray-900">Contact</h3>
                                         <p className="mt-1 font-bold text-gray-600"><a href="tel:+123">Phone: +91
                                             123456789</a></p>
-                                        <a className="flex m-1" href="tel:+919823331842">
+                                        {/* <a className="flex m-1" href="tel:+919823331842">
                                             <div className="flex-shrink-0">
                                                 <div
                                                     className="flex items-center justify-between h-10 w-30 rounded-md bg-indigo-500 text-white p-2">
-                                                    {/* <!-- Heroicon name: phone --> */}
+                                                    
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                         stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -246,7 +246,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                        </a>
+                                        </a> */}
                                     </div>
                                     <div className="px-6 py-4">
                                         <h3 className="text-lg font-medium text-gray-900">Our Address</h3>
@@ -288,8 +288,6 @@ const Home = () => {
                     </div>
                 </footer>
             </section>
-
-
         </div>
     );
 }
