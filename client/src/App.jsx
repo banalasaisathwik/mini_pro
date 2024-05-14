@@ -12,6 +12,11 @@ import MyBookings from './components/MyBookings';
 import Register from './components/Register';
 import RegisterP from './components/RegisterP';
 import Login from './components/Login';
+import Lawncaresub from './components/Lawncaresub';
+import Ac from './components/Ac';
+import Paint from './components/Paint';
+import HouseCleaning from './components/HouseCleaning';
+import Locksmith from './components/Locksmith';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,15 +29,15 @@ function App() {
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path={"/spa"} element={<Spa />} />
-          <Route path={"/acService"} element={<Spa />} />
-          <Route path={"/deepHouseClean"} element={<Spa />} />
-          <Route path={"/lawnCare"} element={<Spa />} />
+          <Route path={"/acService"} element={< Ac />} />
+          <Route path={"/deepHouseClean"} element={<HouseCleaning />} />
+          <Route path={"/lawnCare"} element={<Lawncaresub />} />
           <Route path={"/petGrooming"} element={<Spa />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerp"} element={<RegisterP />} />
           <Route path={"/login"} element={<Login />} />
-          <Route path={"/locksmith"} element={<Spa />} />
-          <Route path={"/painting"} element={<Spa />} />
+          <Route path={"/locksmith"} element={<Locksmith />} />
+          <Route path={"/painting"} element={<Paint />} />
           <Route path={"/mehandi"} element={<Spa />} />
           <Route path={"/booking/:type"} element={<Booking />} />
           <Route path={"/mybookings"} element={<MyBookings />} />

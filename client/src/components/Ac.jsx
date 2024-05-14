@@ -1,6 +1,6 @@
 import React from "react";
 
-const Spa = ({ type, tokenAmount, duration, imageUrl }) => {
+const Ac = ({ type, tokenAmount, duration, imageUrl }) => {
     return (
         <a href={`/booking/${type}`} className="rounded-xl overflow-hidden flex shadow hover:shadow-md max-w-sm bg-stone-500 text-white cursor-pointer h-28">
             <div className="w-7/12 pl-3 p-3 text-text1 flex flex-col justify-center">
@@ -19,37 +19,38 @@ const Spa = ({ type, tokenAmount, duration, imageUrl }) => {
     );
 }
 
-const SpaList = () => {
-    const spaSubServices = [
+const AcList = () => {
+    
+    const acSubServices = [
         { 
-          type: "Bridal Mehendi",
-          tokenAmount: 2000,
-          duration: "5hrs",
-          imageUrl: "https://img.freepik.com/free-photo/indian-wedding-bangles-mehandi-henna-coloured-hands-with-reflective-ornament_8353-9783.jpg?t=st=1715572026~exp=1715575626~hmac=0dbcb9889e9659bdd1ac24d5894bf059526d5c31c6c99c50ea9dc1d736ec8316&w=740"
-        },
-        { 
-          type: "leg Mehandi",
-          tokenAmount: 1000,
-          duration: "3hrs",
-          imageUrl: "https://img.freepik.com/premium-photo/heena-art-yellow-background-isolated-hand-female-hand-beautiful-art-hand_1048944-20511076.jpg?w=1800"
-        },
-        { 
-          type: "Half Mehendi",
-          tokenAmount: 1200,
-          duration: "4hrs",
-          imageUrl: "https://img.freepik.com/premium-photo/mehendy-art_1048944-10196867.jpg?w=900"
-        },
-        { 
-          type: "Indo-Western Mehendi",
+          type: "AC Installation",
           tokenAmount: 1500,
-          duration: "4hrs",
-          imageUrl: "https://img.freepik.com/premium-photo/close-up-woman-holding-ice-cream_1048944-23515321.jpg?w=740"
+          duration: "3hrs",
+          imageUrl: "https://img.freepik.com/free-photo/repairman-doing-air-conditioner-service_1303-26541.jpg?t=st=1715570900~exp=1715574500~hmac=1812581a225ac88217a76420cb9f40c142b7690ba1f626a0ea9ec60530e3ab2c&w=1800"
         },
         { 
-          type: "Kids Mehendi",
-          tokenAmount: 500,
+          type: "AC Repair",
+          tokenAmount: 1200,
+          duration: "2hrs",
+          imageUrl: "https://img.freepik.com/premium-photo/smiling-technician-repairing-hot-water-heater_53419-11269.jpg?w=1800"
+        },
+        { 
+          type: "AC Maintenance",
+          tokenAmount: 1000,
+          duration: "2hrs",
+          imageUrl: "https://img.freepik.com/premium-photo/air-conditioner-service-indoors-air-conditioner-cleaning-technician-he-opened-front-cover-took-out-filters-washed-it-he-uniform-wearing-rubber-mask_208349-1339.jpg?w=1800"
+        },
+        { 
+          type: "AC Cleaning",
+          tokenAmount: 1000,
+          duration: "2hrs",
+          imageUrl: "https://img.freepik.com/premium-photo/repairman-uniform-installing-outside-unit-air-conditioner_93675-104991.jpg?w=1800"
+        },
+        { 
+          type: "AC Inspection",
+          tokenAmount: 800,
           duration: "1hr",
-          imageUrl: "https://img.freepik.com/premium-photo/close-up-midsection-woman-showing-henna-tattoo_1048944-26781711.jpg?w=1800"
+          imageUrl: "https://img.freepik.com/premium-photo/male-technician-repairing-air-conditioner-safety-uniform-indoors_61243-423.jpg?w=1800"
         }
       ];
 
@@ -57,8 +58,8 @@ const SpaList = () => {
     return (
         <div className="grid grid-cols-4 gap-4">
 
-            {spaSubServices.map((spa, index) => (
-                <Spa
+            {acSubServices.map((spa, index) => (
+                <Ac
                     key={index}
                     type={spa.type}
                     tokenAmount={spa.tokenAmount}
@@ -70,4 +71,4 @@ const SpaList = () => {
     );
 }
 
-export default SpaList;
+export default AcList;
