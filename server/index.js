@@ -15,7 +15,7 @@ app.use("/api/book", bookRouter);
 app.use("/api/provider", providerRouter);
 app.get("/", (req, res) => res.json({ msg: "in servere" }));
 
-const mongoURI = "mongodb://127.0.0.1:27017/CommunitySync";
+const mongoURI = "mongodb+srv://itsmecharan08:fQO5udLpGGUzdkhp@cluster0.emhoeat.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0";
 mongoose
   .connect(mongoURI)
   .then(() => console.log("Connected to MongoDB"))

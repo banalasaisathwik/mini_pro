@@ -41,47 +41,68 @@ router.post("/register", async (req, res) => {
 
 router.get(
   "/providersfilter/:serviceType/:serviceArea",
-  authenticateJwt,
+  
   async (req, res) => {
+    // Log the received parameters to debug
+    console.log('Received params:', req.params);
+
     const { serviceType, serviceArea } = req.params;
+    
+    // Check if serviceType and serviceArea are received correctly
+    if (!serviceType || !serviceArea) {
+      return res.status(400).json({ message: "Missing parameters" });
+    }
+
     try {
+      // Assuming `typeOfServiceOffered` and `serviceArea` are fields in the Provider schema
       const providers = await Provider.find({
-        typeOfServiceOffered: "Spa",
+        typeOfServiceOffered: serviceType,
+        serviceArea: serviceArea,
       });
+
       console.log(serviceArea, serviceType);
+
       const token = req.headers.authorization;
-      console.log(token);
+      console.log('Token:', token);
+
       if (providers.length > 0) {
         const providerIds = providers.map((provider) => provider._id);
+
         const bookingData = {
-          userId: req.user,
+          userId: req.user, // Make sure req.user is populated by authenticateJwt
           typeOfServiceNeeded: serviceType,
           date: new Date(),
         };
+
         const headers = {
           "Content-Type": "application/json",
           authorization: token,
         };
+
         const bookingResponse = await axios.post(
-          "http://localhost:1337/api/book/book",
+          "http://localhost:1337/api/book/book", // Consider using a config for the base URL
           bookingData,
           {
             headers: headers,
           }
         );
+
         const createdBookingId = await bookingResponse.data.bookingId;
         const createdBooking = await Booking.findById(createdBookingId);
         createdBooking.providers = providerIds;
         await createdBooking.save();
+
         console.log(providerIds);
+
         const providerInfo = providers.map((provider) => {
           return {
-            id: provider.id,
+            id: provider._id,
             fullName: provider.fullName,
             yearsOfExperience: provider.yearsOfExperience,
             rating: provider.rating,
           };
         });
+
         res.json({
           message: "Providers found",
           providers: providerInfo,
@@ -101,6 +122,8 @@ router.get(
     }
   }
 );
+
+
 
 router.get("/requests/:providerId", authenticateJwt, async (req, res) => {
   try {
