@@ -1,13 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+    const navigate = useNavigate()
     return (
         <div>
             <div className="relative w-full h-[320px] overflow-hidden" id="home">
                 <img src="https://tse1.mm.bing.net/th?id=OIP.l7ak7C3sWqSNHufaJFAN2wHaD_&pid=Api&P=0&h=220" alt="Background Image" className="absolute inset-0 object-cover object-center w-full h-full" />
                 <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-between">
                     <div className="md:w-1/2">
-                        <h1 className="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">Kalki</h1>
+                        <h1 className="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">CommunitySync</h1>
                         <p className="font-regular text-xl mb-8 mt-4">One stop solution for professional services</p>
                         <a href="#contactUs" className="px-6 py-3 bg-[#c8a876] text-white font-medium rounded-full hover:bg-[#c09858] transition duration-200">Contact Us</a>
                     </div>
@@ -21,7 +23,7 @@ const Home = () => {
                         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Trending right now</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                            <a href="/spa" className="block" onClick={() => sessionStorage.setItem('type', 'Spa')}>
+                            <a className="block" onClick={() => { sessionStorage.setItem('type', 'Spa'); navigate("/spa") }}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse4.mm.bing.net/th?id=OIP.wxxexalNoEz0EffBcNBqmQHaE7&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -31,7 +33,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/acService" className="block" onClick={() => sessionStorage.setItem('type', 'acService')}>
+                            <a className="block" onClick={() => { sessionStorage.setItem('type', 'AC Service'); navigate("/acService") }}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -41,7 +43,7 @@ const Home = () => {
                                 </div>
                             </a>
 
-                            <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem('type', 'deepHouseClean')}>
+                            <a className="block" onClick={() => { sessionStorage.setItem('type', 'Deep House Clean'); navigate("/deepHouseClean") }}>
                                 <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                     <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                     <div className="p-6 text-center">
@@ -63,7 +65,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <a href="/acService" className="block" onClick={() => sessionStorage.setItem('type', 'acService')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'AC Service'); navigate("/acService") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.cu8SDl_b19fOPDsNU661kwHaE8&pid=Api&P=0&h=220" alt="AC Service" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -73,7 +75,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/deepHouseClean" className="block" onClick={() => sessionStorage.setItem('type', 'deepHouseClean')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Deep House Clean'); navigate("/deepHouseClean") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.7efBVaeoCvNikXyEyKZH2gHaEL&pid=Api&P=0&h=220" alt="Deep House Clean" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -82,7 +84,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </a>
-                        <a href="/lawnCare" className="block" onClick={() => sessionStorage.setItem('type', 'lawnCare')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Lawn Care'); navigate("/lawncare") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.VlDyehre1wzOborn-Mch4QHaE8&pid=Api&P=0&h=220" alt="Lawn Care" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -92,7 +94,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/petGrooming" className="block" onClick={() => sessionStorage.setItem('type', 'petGrooming')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Pet Grooming'); navigate("/petGrooming") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.x3TxlIAkqubKwk3M2RnHvwHaE8&pid=Api&P=0&h=220" alt="Pet Grooming" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -102,7 +104,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/spa" className="block" onClick={() => sessionStorage.setItem('type', 'Spa')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Spa'); navigate("/spa") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.a8PgOwiLmvAFOp1rPOxW4gHaEK&pid=Api&P=0&h=220" alt="Spa" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -112,7 +114,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/locksmith" className="block" onClick={() => sessionStorage.setItem('type', 'locksmith')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Locksmith'); navigate("/locksmith") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse4.mm.bing.net/th?id=OIP.MIjZGOHfckBcVJitcDwu6QHaEK&pid=Api&P=0&h=220" alt="Locksmith" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -122,7 +124,7 @@ const Home = () => {
                             </div>
                         </a>
 
-                        <a href="/painting" className="block" onClick={() => sessionStorage.setItem('type', 'painting')}>
+                        <a className="block" onClick={() => { sessionStorage.setItem('type', 'Painting'); navigate("/painting") }}>
                             <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.aaqJpQvNqE7JhHKcrQeU4AHaE8&pid=Api&P=0&h=220" alt="Painting" className="w-full h-64 object-cover" />
                                 <div className="p-6 text-center">
@@ -162,7 +164,7 @@ const Home = () => {
                         <div className="max-w-lg">
                             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
                             <p className="mt-4 text-gray-600 text-lg">
-                                Welcome to Kalki, your one-stop solution for professional services. We are dedicated to providing exceptional services that cater to your every need. Our team of skilled professionals is committed to delivering top-notch quality and customer satisfaction. At Kalki, we believe in the power of expertise and reliability. Whether it's AC service, deep house cleaning, spa treatments, or locksmith services, we ensure that every service is performed with precision and care. We take pride in our attention to detail and our ability to exceed our customers' expectations. Our mission is to make your life easier by offering convenient and reliable services that you can trust. With Kalki, you can rest assured that your needs will be met with professionalism and excellence. Thank you for choosing Kalki. We look forward to serving you and building a long-lasting relationship based on trust and satisfaction.We look forward to serving you!</p>
+                                Welcome to CommunitySync, your one-stop solution for professional services. We are dedicated to providing exceptional services that cater to your every need. Our team of skilled professionals is committed to delivering top-notch quality and customer satisfaction. At CommunitySync, we believe in the power of expertise and reliability. Whether it's AC service, deep house cleaning, spa treatments, or locksmith services, we ensure that every service is performed with precision and care. We take pride in our attention to detail and our ability to exceed our customers' expectations. Our mission is to make your life easier by offering convenient and reliable services that you can trust. With CommunitySync, you can rest assured that your needs will be met with professionalism and excellence. Thank you for choosing CommunitySync. We look forward to serving you and building a long-lasting relationship based on trust and satisfaction.We look forward to serving you!</p>
                         </div>
                         <div className="mt-12 md:mt-0">
                             <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86" alt="About Us Image" className="object-cover rounded-lg shadow-md" />

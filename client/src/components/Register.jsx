@@ -44,7 +44,7 @@ const Register = () => {
                     setShowForm(false);
                     sessionStorage.setItem('token', data.token);
                     setTimeout(() => {
-                        navigate("/login");
+                        navigate("/");
                     }, 3000);
                 } else {
                     setMessage(data.error);

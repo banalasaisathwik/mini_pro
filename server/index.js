@@ -15,9 +15,10 @@ app.use("/api/book", bookRouter);
 app.use("/api/provider", providerRouter);
 app.get("/", (req, res) => res.json({ msg: "in servere" }));
 
-const mongoURI = "mongodb+srv://itsmecharan08:fQO5udLpGGUzdkhp@cluster0.emhoeat.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI =
+  "mongodb+srv://itsmecharan08:fQO5udLpGGUzdkhp@cluster0.emhoeat.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0";
 mongoose
-  .connect(mongoURI)
+  .connect("mongodb://127.0.0.1:27017/CommunitySync")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 

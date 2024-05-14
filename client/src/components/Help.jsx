@@ -11,15 +11,15 @@ const Help = () => {
                             width="100%"
                             height="100%"
                             className="absolute inset-0"
-                         
+
                             title="map"
-                           
+
                             src="https://www.google.com/maps/embed/v1/place?q=CBIT,+Osman+Sagar+Road,+Kokapet,+Gandipet,+Telangana,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                             style={{
-                                filter: "grayscale(1) contrast(1.2) opacity(0.4)",
+                                filter: "contrast(1.2) opacity(0.7)",
                             }}
                         ></iframe>
-                        <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+                        {/* <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
                             <div className="lg:w-1/2 px-6">
                                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                                     ADDRESS
@@ -33,14 +33,14 @@ const Help = () => {
                                     EMAIL
                                 </h2>
                                 <a href="#" className="text-red-500 leading-relaxed">
-                                    example@email.com
+                                    Ram@gmail.com
                                 </a>
                                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                                     PHONE
                                 </h2>
                                 <p className="leading-relaxed">123-456-7890</p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
                         <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
@@ -91,11 +91,11 @@ const Help = () => {
                             ></textarea>
                         </div>
                         <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
-                            Button
+                            Submit
                         </button>
-                        <p className="text-xs text-gray-500 mt-3">
+                        {/* <p className="text-xs text-gray-500 mt-3">
                             thanks for the feedback
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </section>

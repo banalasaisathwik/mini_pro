@@ -68,4 +68,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/fetchDetails", authenticateJwt, async (req, res) => {
+  userDocument = await User.findOne({ _id: req.user.userId });
+  if (!userDocument) {
+    return res.status(401).json({ status: "Fail", message: "Invalid email" });
+  }
+  return res.json({ details: userDocument });
+});
+
 module.exports = router;

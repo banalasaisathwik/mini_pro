@@ -26,19 +26,18 @@ const ProviderSchema = new mongoose.Schema({
 
 const BookingSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  fullName: { type: String, required: true },
+  email: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
   providers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Provider" }],
   acceptedProvider: { type: mongoose.Schema.Types.ObjectId, ref: "Provider" },
   typeOfServiceNeeded: { type: String, required: true },
-  date: { type: Date, required: true },
-  time: {
-    time: {
-      type: String,
-      default: "10:00:00 AM",
-    },
-  },
+  serviceArea: { type: String, required: true },
+  date: { type: String, required: true },
+  time: { type: String, default: "10:00" },
   status: {
     type: String,
-    enum: ["pending", "accepted", "rejected"],
+    enum: ["pending", "accepted", "finished"],
     default: "pending",
   },
   created_at: { type: Date, default: Date.now },

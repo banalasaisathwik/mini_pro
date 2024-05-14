@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
       ProviderData.password = await bcrypt.hash(req.body.password, 10);
       const provider = await Provider.create(ProviderData);
       const token = jwt.sign({ providerId: provider.id }, SECRET, {
-        expiresIn: "1h",
+        expiresIn: "1d",
       });
       return res.json({
         status: "Success",
@@ -39,39 +39,35 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get(
+router.put(
   "/providersfilter/:serviceType/:serviceArea",
-  
+  authenticateJwt,
   async (req, res) => {
-    // Log the received parameters to debug
-    console.log('Received params:', req.params);
-
     const { serviceType, serviceArea } = req.params;
-    
-    // Check if serviceType and serviceArea are received correctly
+    console.log(req.params);
     if (!serviceType || !serviceArea) {
       return res.status(400).json({ message: "Missing parameters" });
     }
 
     try {
-      // Assuming `typeOfServiceOffered` and `serviceArea` are fields in the Provider schema
       const providers = await Provider.find({
-        typeOfServiceOffered: serviceType,
+        typeOfServiceOffered: String(serviceType),
         serviceArea: serviceArea,
       });
 
-      console.log(serviceArea, serviceType);
-
       const token = req.headers.authorization;
-      console.log('Token:', token);
 
       if (providers.length > 0) {
         const providerIds = providers.map((provider) => provider._id);
 
         const bookingData = {
-          userId: req.user, // Make sure req.user is populated by authenticateJwt
+          fullName: req.body.formData.fullName,
+          email: req.body.formData.email,
+          phoneNumber: req.body.formData.phoneNumber,
+          userId: req.user.userId,
           typeOfServiceNeeded: serviceType,
           date: new Date(),
+          serviceArea: serviceArea,
         };
 
         const headers = {
@@ -80,7 +76,7 @@ router.get(
         };
 
         const bookingResponse = await axios.post(
-          "http://localhost:1337/api/book/book", // Consider using a config for the base URL
+          "http://localhost:1337/api/book/book",
           bookingData,
           {
             headers: headers,
@@ -116,6 +112,7 @@ router.get(
       }
     } catch (error) {
       console.error(error);
+      console.log(req.body.formData.fullName);
       res
         .status(500)
         .json({ message: "Error fetching providers", error: error.message });
@@ -123,7 +120,51 @@ router.get(
   }
 );
 
+router.get(
+  "/simpleprovidersfilter/:serviceType/:serviceArea",
+  authenticateJwt,
+  async (req, res) => {
+    const { serviceType, serviceArea } = req.params;
+    if (!serviceType || !serviceArea) {
+      return res.status(400).json({ message: "Missing parameters" });
+    }
 
+    try {
+      const providers = await Provider.find({
+        typeOfServiceOffered: serviceType,
+        serviceArea: serviceArea,
+      });
+
+      const token = req.headers.authorization;
+
+      if (providers.length > 0) {
+        const providerIds = providers.map((provider) => provider._id);
+        const providerInfo = providers.map((provider) => {
+          return {
+            id: provider._id,
+            fullName: provider.fullName,
+            yearsOfExperience: provider.yearsOfExperience,
+            rating: provider.rating,
+          };
+        });
+        res.json({
+          message: "Providers found",
+          providers: providerInfo,
+        });
+      } else {
+        console.log("No Providers found");
+        res
+          .status(404)
+          .json({ message: "No providers found for the specified criteria" });
+      }
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ message: "Error fetching providers", error: error.message });
+    }
+  }
+);
 
 router.get("/requests/:providerId", authenticateJwt, async (req, res) => {
   try {
@@ -150,5 +191,27 @@ router.get("/requests/:providerId", authenticateJwt, async (req, res) => {
     });
   }
 });
+
+router.get(
+  "/providerDetails/:providerId",
+  authenticateJwt,
+  async (req, res) => {
+    try {
+      const { providerId } = req.params;
+      const provider = await Provider.findOne({ _id: providerId });
+      console.log(provider);
+      if (!provider) {
+        return res.status(404).json({ message: "Provider not found" });
+      }
+      res.json({ details: provider });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        message: "Error finding providers",
+        error: error.message,
+      });
+    }
+  }
+);
 
 module.exports = router;
